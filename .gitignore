@@ -1,0 +1,14 @@
+main.c
+main
+*.c~
+*.out
+*.pdf
+Makefile.sh
+*~
+criterion.sh
+*.gcno
+*.gcda
+Makefile
+*.o
+*.a
+*.pch
