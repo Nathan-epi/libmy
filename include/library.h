@@ -7,7 +7,13 @@
 
 #ifndef LIBRARY_H
     #define LIBRARY_H
-
+struct info_param
+{
+    int length;
+    char *str;
+    char *copy;
+    char **word_array;
+};
 void my_putchar(char c);
 int my_isneg(int n);
 int my_put_nbr(int nb);
@@ -41,5 +47,7 @@ char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
 int my_show_word_array(char *const *tab);
 char **my_str_to_word_array(char const *str);
+struct info_param *my_params_to_array(int ac, char **av);
+int my_show_param_array(struct info_param const *par);
 
 #endif
