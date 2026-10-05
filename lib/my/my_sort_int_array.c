@@ -5,7 +5,7 @@
 ** Sorts an integer array in ascending order.
 */
 
-void sort_pass(int *array, int limit)
+static void sort_pass(int *array, int limit)
 {
     int j;
     int temp;

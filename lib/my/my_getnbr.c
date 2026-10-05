@@ -8,12 +8,12 @@
 #include <stddef.h>
 #include <limits.h>
 
-int is_numbers(char c)
+static int is_numbers(char c)
 {
     return (c >= '0' && c <= '9');
 }
 
-int signe(int is_neg, char sig)
+static int signe(int is_neg, char sig)
 {
     if (sig == '-') {
         is_neg += 1;
@@ -21,7 +21,7 @@ int signe(int is_neg, char sig)
     return is_neg;
 }
 
-int check_overflow(long number, int is_neg)
+static int check_overflow(long number, int is_neg)
 {
     if (is_neg % 2 == 0 && number > INT_MAX)
         return 1;
@@ -30,7 +30,7 @@ int check_overflow(long number, int is_neg)
     return 0;
 }
 
-int handle_number(char c, int *number, int is_neg)
+static int handle_number(char c, int *number, int is_neg)
 {
     long temp;
 

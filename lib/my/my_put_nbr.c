@@ -7,7 +7,7 @@
 
 #include "library.h"
 
-void calcul(int nb, int diviseur)
+static void calcul(int nb, int diviseur)
 {
     int temp;
 

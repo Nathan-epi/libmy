@@ -7,7 +7,7 @@
 
 #include "library.h"
 
-void capitalize(char *str, int i)
+static void capitalize(char *str, int i)
 {
     if (str[i] >= 'a' && str[i] <= 'z') {
         str[i] = str[i] - 32;
