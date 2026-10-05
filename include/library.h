@@ -49,5 +49,6 @@ int my_show_word_array(char *const *tab);
 char **my_str_to_word_array(char const *str);
 struct info_param *my_params_to_array(int ac, char **av);
 int my_show_param_array(struct info_param const *par);
+void my_put_error(char *message);
 
 #endif
