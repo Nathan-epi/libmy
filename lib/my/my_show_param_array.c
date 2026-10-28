@@ -17,7 +17,7 @@ int my_show_param_array(struct info_param const *par)
     while (par[i].str != 0) {
         my_putstr(par[i].str);
         my_putchar('\n');
-        my_put_nbr(par[i].length);
+        my_putnbr(par[i].length);
         my_putchar('\n');
         j = 0;
         while (par[i].word_array[j] != 0) {

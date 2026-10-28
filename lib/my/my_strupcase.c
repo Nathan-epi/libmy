@@ -5,6 +5,7 @@
 ** A function that puts every letter of every word in it in uppercase.
 */
 
+// Put every letter in uppercase
 char *my_strupcase(char *str)
 {
     int i = 0;

@@ -7,7 +7,8 @@
 
 #include <unistd.h>
 
-void my_putchar(char c)
+/* Display an unique character */
+int my_putchar(char c)
 {
-    write(1, &c, 1);
+    return write(1, &c, 1);
 }

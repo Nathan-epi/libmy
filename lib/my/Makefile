@@ -2,32 +2,27 @@
 ## EPITECH PROJECT, 2026
 ## Makefile
 ## File description:
-## A wonderful file to do automic things !
+## This file is responsible of compiling the library
 ##
 
-NAME 	=	 libmy.a
+SRC		=	*.c
+NAME 	=	libmy.a
 
-CC 		=	 epiclang
-CFLAGS 	=	 -Wall -Wextra -Werror
+CC 		=	epiclang
+CFLAGS	=	-I../../include/
+CCFLAGS =	-Wall -Wextra -Werror
 
-SRC 	= 	$(*.c)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) *.c -c -I../../include/
+all:
+	$(CC) $(SRC) -c $(CFLAGS) $(CCFLAGS)
 	ar rc $(NAME) *.o
-
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	rm -rf *.o
 
 clean:
 	rm -rf *.o
-	rm -rf \#*\#
 
 fclean: clean
-	rm -rf *.gcda
-	rm -rf *.gcdo
+	rm -rf *.a *.out *.gcda *.gcdo
 
-.PHONY: all clean fclean
+re : fclean
+
+.PHONY: all clean fclean re

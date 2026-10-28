@@ -7,6 +7,7 @@
 
 #include "library.h"
 
+// Copie n characters from a string into an another
 char *my_strncpy(char *dest, char const *src, int n)
 {
     int i = 0;

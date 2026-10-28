@@ -5,6 +5,7 @@
 ** Swaps the content of two integers
 */
 
+// Swap the content of two integers
 void my_swap(int *a, int *b)
 {
     int swap;
