@@ -45,8 +45,8 @@ int my_str_isnum(char const *str);
 int my_str_islower(char const *str);
 int my_str_isupper(char const *str);
 int my_str_isprintable(char const *str);
-int my_showstr(char const *str); //*
-int my_showmem(char const *str, int size); //*
+int my_showstr(char const *str);
+int my_showmem(char const *str, int size); //TODO: Implement logic
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
