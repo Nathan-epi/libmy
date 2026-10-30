@@ -5,24 +5,29 @@
 ## This file is responsible of compiling the library
 ##
 
-SRC		=	*.c
-NAME 	=	libmy.a
+SRC		=	$(wildcard *.c)
+OBJ		=	$(SRC:.c=.o)
 
-CC 		=	epiclang
-CFLAGS	=	-I../../include/
-CCFLAGS =	-Wall -Wextra -Werror
+NAME	=	libmy.a
 
-all:
-	$(CC) $(SRC) -c $(CFLAGS) $(CCFLAGS)
-	ar rc $(NAME) *.o
-	rm -rf *.o
+CC		=	epiclang
+CFLAGS	=	-I../../include
+CCFLAGS	=	-Wall -Wextra -Werror
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) -c $< -o $@ $(CFLAGS) $(CCFLAGS)
 
 clean:
-	rm -rf *.o
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf *.a *.out *.gcda *.gcdo
+	rm -f $(NAME)
 
-re : fclean
+re: fclean all
 
 .PHONY: all clean fclean re
