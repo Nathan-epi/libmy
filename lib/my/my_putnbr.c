@@ -6,6 +6,7 @@
 */
 
 #include "library.h"
+#include <limits.h>
 
 static void calcul(int nb, int diviseur)
 {
@@ -17,24 +18,17 @@ static void calcul(int nb, int diviseur)
         nb = nb % diviseur;
         diviseur /= 10;
     }
-    while (diviseur > 0) {
-        temp = nb / diviseur;
-        my_putchar(temp + '0');
-        nb = nb % diviseur;
-        diviseur /= 10;
-    }
 }
 
 int my_putnbr(int nb)
 {
-    int diviseur;
+    int diviseur = 0;
 
     diviseur = 1;
-    if (nb == -2147483648) {
+    if (nb == INT_MIN) {
         my_putchar('-');
         my_putchar('2');
-        my_putnbr(147483648);
-        return (0);
+        nb = 147483648;
     }
     if (nb < 0) {
         my_putchar('-');
