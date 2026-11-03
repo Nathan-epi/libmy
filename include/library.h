@@ -5,11 +5,10 @@
 ** Project library
 */
 
-#include <stdarg.h>
-
 #ifndef LIBRARY_H
     #define LIBRARY_H
     #define ABS(value) ((value < 0) ? (-value) : (value))
+    #include <stdarg.h>
 
 // Static library function
 struct info_param

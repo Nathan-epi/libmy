@@ -24,6 +24,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
+	rm -rf *.gcda *.gcno
 
 fclean: clean
 	rm -f $(NAME)
