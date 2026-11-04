@@ -8,23 +8,6 @@
 #ifndef LIBRARY_H
     #define LIBRARY_H
     #define ABS(value) ((value < 0) ? (-value) : (value))
-
-    #ifndef LIBRARY_VERSION
-        #define LIBRARY_VERSION "0.0.0"
-    #endif
-
-    #ifndef LIBRARY_VERSION_MAJOR
-        #define LIBRARY_VERSION_MAJOR 0
-    #endif
-
-    #ifndef LIBRARY_VERSION_MINOR
-        #define LIBRARY_VERSION_MINOR 0
-    #endif
-
-    #ifndef LIBRARY_VERSION_PATCH
-        #define LIBRARY_VERSION_PATCH 0
-    #endif
-
     #include <stdarg.h>
 
 // Static library function
