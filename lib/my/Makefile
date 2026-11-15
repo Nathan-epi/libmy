@@ -5,21 +5,23 @@
 ## This file is responsible of compiling the library
 ##
 
-SRC				=	$(wildcard *.c)
-OBJ				=	$(SRC:.c=.o)
+SRC		=	$(wildcard basic/*.c) \
+			$(wildcard my_put_error/*.c) \
+			$(wildcard my_printf/*.c)
+OBJ		=	$(SRC:.c=.o)
 
-NAME			=	libmy.a
+NAME	=	libmy.a
 
-CC				=	epiclang
-CFLAGS			=	-I../../include
-CCFLAGS			=	-Wall -Wextra -Werror
+CC		=	epiclang
+CFLAGS	=	-I../../include
+CCFLAGS	=	-Wall -Wextra -Werror
 
-LIBRARY_VERSION = v2.0.5
+LIBRARY_VERSION = v2.1.0
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(info === Compiling library libmy version v$(LIBRARY_VERSION) ===)
+	$(info === Compiling library libmy version $(LIBRARY_VERSION) ===)
 	ar rc $(NAME) $(OBJ)
 
 %.o: %.c

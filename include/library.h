@@ -10,7 +10,8 @@
     #define ABS(value) ((value < 0) ? (-value) : (value))
     #include <stdarg.h>
 
-// Static library function
+// Basic library function
+
 struct info_param
 {
     int length;
@@ -45,7 +46,7 @@ int my_str_islower(char const *str);
 int my_str_isupper(char const *str);
 int my_str_isprintable(char const *str);
 int my_showstr(char const *str);
-int my_showmem(char const *str, int size); //TODO: Implement logic
+int my_showmem(char const *str, int size);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int nb);
 char *my_strdup(char const *src);
@@ -53,10 +54,17 @@ int my_show_word_array(char *const *tab);
 char **my_str_to_word_array(char const *str);
 struct info_param *my_params_to_array(int ac, char **av);
 int my_show_param_array(struct info_param const *par);
-void my_put_error(char *message);
 int my_strchr(char src, char *search);
 
-// My_printf function
+// My_put_error
+
+void my_put_error(const char *format, ...);
+void my_put_errnbr(int nb);
+void my_put_errstr(char const *str);
+void my_put_errchar(const char c);
+
+// My_printf
+
 typedef struct s_format
 {
     int plus;
