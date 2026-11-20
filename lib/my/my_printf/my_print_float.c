@@ -22,9 +22,10 @@ static char get_sign_char(format_t *format, double *nb)
 
 static int print_spaces(int len, char c)
 {
+    int i = 0;
     int count = 0;
 
-    for (int i = 0; i < len; i++) {
+    for (i = 0; i < len; i++) {
         count += my_putchar(c);
     }
     return count;
@@ -32,11 +33,12 @@ static int print_spaces(int len, char c)
 
 static int print_decimals(format_t *format, double dec_part)
 {
+    int i = 0;
     int count = 0;
 
     if (format->precision > 0 || format->hashtag)
         count += my_putchar('.');
-    for (int i = 0; i < format->precision; i++) {
+    for (i = 0; i < format->precision; i++) {
         dec_part *= 10.0;
         count += my_putchar((int)dec_part + '0');
         dec_part -= (int)dec_part;

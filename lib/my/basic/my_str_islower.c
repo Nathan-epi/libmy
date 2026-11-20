@@ -8,6 +8,8 @@
 
 #include "library.h"
 
+// Return `1` if all character of the char* is only
+// alphabetical lowercase character
 int my_str_islower(char const *str)
 {
     int i = 0;
@@ -18,6 +20,6 @@ int my_str_islower(char const *str)
             j++;
     }
     if (j == i)
-        return 1;
-    return 0;
+        return true;
+    return false;
 }

@@ -11,9 +11,8 @@ static int print_binary_rec(unsigned int nb, char *base)
 {
     int count = 0;
 
-    if (nb >= 2) {
+    if (nb >= 2)
         count += print_binary_rec(nb / 2, base);
-    }
     count += my_putchar(base[nb % 2]);
     return count;
 }

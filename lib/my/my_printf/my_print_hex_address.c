@@ -32,9 +32,10 @@ static int print_hex_rec(unsigned long address, char *base)
 
 static int print_spaces(int nb_spaces)
 {
+    int i = 0;
     int count = 0;
 
-    for (int i = 0; i < nb_spaces; i++)
+    for (i = 0; i < nb_spaces; i++)
         count += my_putchar(' ');
     return count;
 }

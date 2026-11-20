@@ -13,10 +13,9 @@ int my_find_prime_sup(int nb)
 {
     if (nb < 2)
         nb = 2;
-    while (!my_is_prime(nb)) {
+    for (; !my_is_prime(nb); nb++) {
         if (nb >= INT_MAX)
-            return 0;
-        nb++;
+            return false;
     }
     return nb;
 }

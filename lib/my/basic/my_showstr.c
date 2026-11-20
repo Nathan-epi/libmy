@@ -22,9 +22,8 @@ int my_showstr(char const *str)
             my_putchar('\\');
             my_putchar(hex[c / 16]);
             my_putchar(hex[c % 16]);
-        } else {
+        } else
             my_putchar(str[i]);
-        }
     }
-    return 0;
+    return false;
 }

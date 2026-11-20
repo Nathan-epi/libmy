@@ -8,24 +8,21 @@
 
 #include "library.h"
 
+// Display the parameters stored in info_param
 int my_show_param_array(struct info_param const *par)
 {
-    int i;
-    int j;
+    int i = 0;
+    int j = 0;
 
-    i = 0;
-    while (par[i].str != 0) {
+    for (i = 0; par[i].str != 0; i++) {
         my_putstr(par[i].str);
         my_putchar('\n');
         my_putnbr(par[i].length);
         my_putchar('\n');
-        j = 0;
-        while (par[i].word_array[j] != 0) {
+        for (j = 0; par[i].word_array[j] != 0; j++) {
             my_putstr(par[i].word_array[j]);
             my_putchar('\n');
-            j++;
         }
-        i++;
     }
-    return 0;
+    return false;
 }

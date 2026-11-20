@@ -27,16 +27,14 @@ void my_put_errnbr(int nb)
 
     diviseur = 1;
     if (nb == INT_MIN) {
-        my_put_errchar('-');
-        my_put_errchar('2');
+        my_put_errstr("-2");
         nb = 147483648;
     }
     if (nb < 0) {
         my_put_errchar('-');
         nb = -nb;
     }
-    while (diviseur <= nb / 10) {
+    while (diviseur <= nb / 10)
         diviseur *= 10;
-    }
     calcul(nb, diviseur);
 }

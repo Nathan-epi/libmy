@@ -5,6 +5,7 @@
 ** Returns a number, sent to the function as a string.
 */
 
+#include "library.h"
 #include <stddef.h>
 #include <limits.h>
 
@@ -24,25 +25,26 @@ static int signe(int is_neg, char sig)
 static int check_overflow(long number, int is_neg)
 {
     if (is_neg % 2 == 0 && number > INT_MAX)
-        return 1;
+        return true;
     if (is_neg % 2 != 0 && number > -(long)INT_MIN)
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
 
 static int handle_number(char c, int *number, int is_neg)
 {
-    long temp;
+    long temp = 0;
 
     if (!is_numbers(c))
-        return 0;
+        return false;
     temp = (long) *number * 10 + (c - '0');
     if (check_overflow(temp, is_neg))
         return 1;
     *number = (int)temp;
-    return 0;
+    return false;
 }
 
+// Receive a number in char* and return a int
 int my_getnbr(char const *str)
 {
     int is_neg = 0;
@@ -50,14 +52,12 @@ int my_getnbr(char const *str)
     int i = 0;
 
     if (str == NULL || str[0] == '\0')
-        return 0;
-    while (str[i] == '+' || str[i] == '-') {
+        return false;
+    for (i = 0; str[i] == '+' || str[i] == '-'; i++)
         is_neg = signe(is_neg, str[i]);
-        i++;
-    }
     while (is_numbers(str[i])) {
         if (handle_number(str[i], &number, is_neg))
-            return 0;
+            return false;
         i++;
     }
     if (is_neg % 2 != 0)

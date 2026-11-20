@@ -16,5 +16,5 @@ int my_show_word_array(char *const *tab)
         my_putstr(tab[i]);
         my_putchar('\n');
     }
-    return 0;
+    return false;
 }

@@ -13,8 +13,8 @@ static int is_alphanumeric(char c)
     if ((c >= 'A' && c <= 'Z') ||
         (c >= 'a' && c <= 'z') ||
         (c >= '0' && c <= '9'))
-        return 1;
-    return 0;
+        return true;
+    return false;
 }
 
 static int count_words(char const *str)
@@ -22,11 +22,10 @@ static int count_words(char const *str)
     int i = 0;
     int count = 0;
 
-    while (str[i] != '\0') {
+    for (i = 0; str[i] != '\0'; i++) {
         if (is_alphanumeric(str[i]) &&
             (i == 0 || !is_alphanumeric(str[i - 1])))
             count++;
-        i++;
     }
     return count;
 }
@@ -35,9 +34,8 @@ static int word_length(char const *str, int start)
 {
     int length = 0;
 
-    while (str[start + length] != '\0' &&
-        is_alphanumeric(str[start + length]))
-        length++;
+    for (length = 0; str[start + length] != '\0' &&
+        is_alphanumeric(str[start + length]); length++);
     return length;
 }
 
@@ -48,16 +46,17 @@ static char *copy_word(char const *str, int start)
     char *word;
 
     word = malloc(sizeof(char) * (length + 1));
-    if (word == NULL)
+    if (word == NULL) {
+        my_put_error("An allocation error occured. strtowo.memory2.error");
         return NULL;
-    while (i < length) {
-        word[i] = str[start + i];
-        i++;
     }
+    for (i = 0; i < length; i++)
+        word[i] = str[start + i];
     word[i] = '\0';
     return word;
 }
 
+// A function that splits a string into words.
 char **my_str_to_word_array(char const *str)
 {
     int i = 0;
@@ -66,15 +65,16 @@ char **my_str_to_word_array(char const *str)
     char **array;
 
     array = malloc(sizeof(char *) * (words + 1));
-    if (array == NULL)
+    if (array == NULL) {
+        my_put_error("An allocation error occured. strtowo.memory.error");
         return NULL;
-    while (str[i] != '\0') {
+    }
+    for (i = 0; str[i] != '\0'; i++) {
         if (is_alphanumeric(str[i]) &&
             (i == 0 || !is_alphanumeric(str[i - 1]))) {
             array[word] = copy_word(str, i);
             word++;
         }
-        i++;
     }
     array[word] = NULL;
     return array;

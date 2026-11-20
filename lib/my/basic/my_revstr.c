@@ -7,6 +7,7 @@
 
 #include "library.h"
 
+// Reverse the given char*
 char *my_revstr(char *str)
 {
     int len = my_strlen(str);
@@ -19,8 +20,7 @@ char *my_revstr(char *str)
         j++;
     }
     new_str[j] = '\0';
-    for (i = 0; new_str[i] != '\0'; i++) {
+    for (i = 0; new_str[i] != '\0'; i++)
         str[i] = new_str[i];
-    }
     return str;
 }

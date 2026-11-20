@@ -11,5 +11,5 @@
 // TODO: Implement the logic
 int my_showmem([[maybe_unused]] char const *str, [[maybe_unused]] int size)
 {
-    return 0;
+    return false;
 }

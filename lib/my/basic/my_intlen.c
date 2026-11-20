@@ -8,11 +8,9 @@
 // Return the lenght of an int
 int my_intlen(unsigned int nb)
 {
-    int len = 1;
+    int len = 0;
 
-    while (nb >= 10) {
+    for (len = 1; nb >= 10; len++)
         nb /= 10;
-        len++;
-    }
     return len;
 }

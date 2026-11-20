@@ -30,10 +30,10 @@ static void cases(const char format, va_list args)
     }
 }
 
-// Display an error message */
-// Add `[ERROR]` at the beggining of the message and `\n` at the end */
+// Display an error message
+// Add `[ERROR]` at the beggining of the message and `\n` at the end
 // Supported tags `%i`, `%d`, `%s`, `%c` and `%%`
-// For empty message display a pre-configured standard error message */
+// For empty message display a pre-configured standard error message
 void my_put_error(const char *format, ...)
 {
     va_list args;

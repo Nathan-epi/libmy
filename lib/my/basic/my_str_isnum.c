@@ -2,12 +2,13 @@
 ** EPITECH PROJECT, 2026
 ** my_str_isnum
 ** File description:
-** A function that returns 1 if the string only contains alphabetical
+** A function that returns 1 if the string only contains numerical
 ** characters and 0 if other type of character.
 */
 
 #include "library.h"
 
+// Return `1` if all character of the char* is only numerical character
 int my_str_isnum(char const *str)
 {
     int i = 0;
@@ -18,6 +19,6 @@ int my_str_isnum(char const *str)
             j++;
     }
     if (j == i)
-        return 1;
-    return 0;
+        return true;
+    return false;
 }

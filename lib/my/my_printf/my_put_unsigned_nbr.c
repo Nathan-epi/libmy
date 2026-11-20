@@ -18,9 +18,8 @@ int my_put_unsigned_nbr(unsigned int nb)
         count += my_putchar('-');
         l_nb = -l_nb;
     }
-    while ((l_nb / divisor) >= 10) {
+    while ((l_nb / divisor) >= 10)
         divisor *= 10;
-    }
     while (divisor > 0) {
         count += my_putchar((l_nb / divisor) % 10 + '0');
         divisor /= 10;

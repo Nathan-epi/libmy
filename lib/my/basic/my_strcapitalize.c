@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** my_strcapitalize
 ** File description:
-** A function that capitalizes the ﬁrst letter of each word.
+** A function that capitalizes the first letter of each word.
 */
 
 #include "library.h"
@@ -14,6 +14,7 @@ static void capitalize(char *str, int i)
     }
 }
 
+// A function that capitalizes the first letter of each word.
 char *my_strcapitalize(char *str)
 {
     int i = 0;

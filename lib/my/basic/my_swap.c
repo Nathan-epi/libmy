@@ -8,7 +8,7 @@
 // Swap the content of two integers
 void my_swap(int *a, int *b)
 {
-    int swap;
+    int swap = 0;
 
     swap = *a;
     *a = *b;

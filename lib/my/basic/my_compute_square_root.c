@@ -5,16 +5,17 @@
 ** A function that returns the square root.
 */
 
+#include "library.h"
+
 int my_compute_square_root(int nb)
 {
-    int i = 1;
+    int i = 0;
 
     if (nb < 0)
-        return 0;
-    while (i <= nb / i) {
+        return false;
+    for (i = 1; i <= nb / i; i++) {
         if (i * i == nb)
             return i;
-        i++;
     }
-    return 0;
+    return false;
 }

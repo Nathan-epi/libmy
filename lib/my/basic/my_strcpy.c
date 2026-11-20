@@ -7,12 +7,12 @@
 
 #include "library.h"
 
+// A function that copies a string into another.
 char *my_strcpy(char *dest, char const *src)
 {
     int i = 0;
-    int len = my_strlen(src);
 
-    for (i = 0; i < len; i++) {
+    for (i = 0; i < my_strlen(src); i++) {
         dest[i] = src[i];
     }
     dest[i] = '\0';

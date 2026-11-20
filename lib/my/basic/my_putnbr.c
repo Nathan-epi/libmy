@@ -10,7 +10,7 @@
 
 static void calcul(int nb, int diviseur)
 {
-    int temp;
+    int temp = 0;
 
     while (diviseur > 0) {
         temp = nb / diviseur;
@@ -20,14 +20,13 @@ static void calcul(int nb, int diviseur)
     }
 }
 
+// Display the number given
 int my_putnbr(int nb)
 {
-    int diviseur = 0;
+    int diviseur = 1;
 
-    diviseur = 1;
     if (nb == INT_MIN) {
-        my_putchar('-');
-        my_putchar('2');
+        my_putstr("-2");
         nb = 147483648;
     }
     if (nb < 0) {
@@ -38,5 +37,5 @@ int my_putnbr(int nb)
         diviseur *= 10;
     }
     calcul(nb, diviseur);
-    return (0);
+    return false;
 }

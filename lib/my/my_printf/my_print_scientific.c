@@ -12,14 +12,10 @@ static int normalize_float(format_t *format, double *nb)
     int exp = 0;
 
     if (*nb != 0.0) {
-        while (*nb >= 10.0) {
+        for (exp = 0; *nb >= 10.0; exp++)
             *nb /= 10.0;
-            exp++;
-        }
-        while (*nb < 1.0) {
+        for (; *nb < 1.0; exp--)
             *nb *= 10.0;
-            exp--;
-        }
     }
     *nb += 0.5 * my_power(10, -(format->precision));
     if (*nb >= 10.0) {
@@ -43,6 +39,7 @@ static int print_exponent(int exp, char conv)
 
 static int print_mantissa(format_t *format, double nb)
 {
+    int i = 0;
     int count = 0;
     int int_part = (int)nb;
     double dec_part = nb - (double)int_part;
@@ -50,7 +47,7 @@ static int print_mantissa(format_t *format, double nb)
     count += my_putnbr(int_part);
     if (format->precision > 0 || format->hashtag)
         count += my_putchar('.');
-    for (int i = 0; i < format->precision; i++) {
+    for (i = 0; i < format->precision; i++) {
         dec_part *= 10.0;
         count += my_putchar((int)dec_part + '0');
         dec_part -= (int)dec_part;

@@ -9,11 +9,11 @@
     #define LIBRARY_H
     #define ABS(value) ((value < 0) ? (-value) : (value))
     #include <stdarg.h>
+    #include <stdbool.h>
 
 // Basic library function
 
-struct info_param
-{
+struct info_param {
     int length;
     char *str;
     char *copy;
@@ -65,8 +65,7 @@ void my_put_errchar(const char c);
 
 // My_printf
 
-typedef struct s_format
-{
+typedef struct s_format {
     int plus;
     int zero;
     int minus;
@@ -97,8 +96,7 @@ double my_power(int a, int b);
 int my_put_unsigned_nbr(unsigned int nb);
 int my_intlen(unsigned int nb);
 typedef int (*conversion_t)(format_t *, va_list);
-typedef struct s_conversion_map
-{
+typedef struct s_conversion_map {
     char conversion;
     conversion_t function;
 } conversion_map_t;

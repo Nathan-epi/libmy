@@ -30,15 +30,11 @@ static int calc_hex_float(double *nb)
     int exp = 0;
 
     if (*nb == 0.0)
-        return 0;
-    while (*nb >= 2.0) {
+        return false;
+    for (exp = 0; *nb >= 2.0; exp++)
         *nb /= 2.0;
-        exp++;
-    }
-    while (*nb < 1.0) {
+    for (; *nb < 1.0; exp--)
         *nb *= 2.0;
-        exp--;
-    }
     return exp;
 }
 

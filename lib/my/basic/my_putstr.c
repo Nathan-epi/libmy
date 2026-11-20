@@ -7,12 +7,13 @@
 
 #include "library.h"
 
+// Display the character of a string
 int my_putstr(char const *str)
 {
-    int i;
+    int i = 0;
 
     for (i = 0; str[i] != '\0'; i++) {
         my_putchar(str[i]);
     }
-    return 0;
+    return false;
 }

@@ -9,12 +9,9 @@
 
 int my_isneg(int n)
 {
-    if (n >= 0) {
-        my_putchar('P');
-        my_putchar('\n');
-    } else {
-        my_putchar('N');
-        my_putchar('\n');
-    }
-    return (0);
+    if (n >= 0)
+        my_putstr("P\n");
+    else
+        my_putstr("N\n");
+    return false;
 }

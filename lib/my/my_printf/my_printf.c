@@ -8,7 +8,7 @@
 #include "library.h"
 #include <stddef.h>
 
-/* Handle the call to the needed function */
+// Handle the call to the needed function
 static int call(format_t *specifier, int *count, va_list args)
 {
     int i = 0;
@@ -18,7 +18,7 @@ static int call(format_t *specifier, int *count, va_list args)
     for (i = 0; i < len; i++) {
         if (conversions[i].conversion == specifier->conversion) {
             *count += conversions[i].function(specifier, args);
-            return 0;
+            return false;
         }
     }
     my_put_error("Unable to find the correct function");
@@ -129,7 +129,7 @@ static int parser(const char *format, format_t *specifier, int *i, va_list args)
     for (; format[*i] != '\0'; (*i)++) {
         if (my_strchr(format[*i], "cspdiuoxXfFeEgGaAn%bS") == 1) {
             specifier->conversion = format[*i];
-            return 0;
+            return false;
         }
         flags_handler(format, specifier, *i);
         get_width(format, specifier, i, args);
@@ -155,9 +155,8 @@ int my_printf(const char *format, ...)
             count += my_putchar(format[i]);
             continue;
         }
-        if (format[i] == '%' && parser(format, &specifier, &i, args) == -1) {
+        if (format[i] == '%' && parser(format, &specifier, &i, args) == -1)
             return -1;
-        }
         if (call(&specifier, &count, args) == -1)
             return -1;
     }

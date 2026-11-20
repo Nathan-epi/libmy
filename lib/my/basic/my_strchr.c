@@ -15,7 +15,7 @@ int my_strchr(char src, char *search)
 
     for (i = 0; search[i] != '\0'; i++) {
         if (search[i] == src)
-            return 1;
+            return true;
     }
-    return 0;
+    return false;
 }

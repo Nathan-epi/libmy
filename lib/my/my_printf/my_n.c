@@ -71,10 +71,10 @@ int my_n(format_t *format, va_list args)
 
     if (format->length == NULL || format->length[0] == '\0') {
         *ptr = format->count;
-        return 0;
+        return false;
     }
     check_cs(format, args);
     check_lld(format, args);
     check_sip(format, args);
-    return 0;
+    return false;
 }

@@ -16,7 +16,7 @@ CC		=	epiclang
 CFLAGS	=	-I../../include
 CCFLAGS	=	-Wall -Wextra -Werror
 
-LIBRARY_VERSION = v2.1.0
+LIBRARY_VERSION = v2.1.1
 
 all: $(NAME)
 

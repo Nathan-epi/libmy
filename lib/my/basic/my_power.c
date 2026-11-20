@@ -7,13 +7,15 @@
 
 #include "library.h"
 
+// Return a to the power of b
 double my_power(int a, int b)
 {
+    int i = 0;
     double result = a;
 
     if (b == 0)
         return 1.0;
-    for (int i = 1; i < ABS(b); i++) {
+    for (i = 1; i < ABS(b); i++) {
         result *= a;
     }
     if (b < 0)

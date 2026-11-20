@@ -12,15 +12,11 @@ static int get_exponent(double nb)
     int exp = 0;
 
     if (nb == 0.0)
-        return 0;
-    while (nb >= 10.0) {
+        return false;
+    for (exp = 0; nb >= 10.0; exp++)
         nb /= 10.0;
-        exp++;
-    }
-    while (nb < 1.0) {
+    for (; nb < 1.0; exp--)
         nb *= 10.0;
-        exp--;
-    }
     return exp;
 }
 
@@ -30,12 +26,10 @@ static int trim_zeros(double nb, int prec, int hashtag)
     long dec = 0;
 
     if (hashtag || prec <= 0)
-        return (prec < 0) ? 0 : prec;
+        return (prec < 0) ? false : prec;
     dec = (long)((rounded - (long)rounded) * my_power(10, prec));
-    while (prec > 0 && dec % 10 == 0) {
+    for (; prec > 0 && dec % 10 == 0; prec--)
         dec /= 10;
-        prec--;
-    }
     return prec;
 }
 
